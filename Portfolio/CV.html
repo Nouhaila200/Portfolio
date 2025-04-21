@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Nouhaila Ourrad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+       body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.6;
+      position: relative;
+    }
+    .card p {
+  margin-bottom: 1rem; /* espace entre les paragraphes */
+  line-height: 1.8;    /* interligne plus aéré */
+  text-align: justify;
+}
+
+    /* ✅ Image IA de fond sur tout le site */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCfw4TQ8M8BesR95nux7W49_PORl9RiTPzKQ&s') no-repeat center center;
+      background-size: cover;
+      opacity: 0.05;
+      z-index: -2;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(90deg, #00ffff44, #8800ff44);
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* ✅ centrage horizontal */
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Parallax background effect */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.futura-sciences.com%2Ftech%2Fquestions-reponses%2Fintelligence-artificielle-nouveaux-outils-ia-sont-ils-capables-18666%2F&psig=AOvVaw2_w7CDVP0QGc6p_qwa4lh5&ust=1745325242357000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJCui7CR6YwDFQAAAAAdAAAAABAE') no-repeat center center/cover;
+      z-index: -1;
+      transform: translateY(0);
+      transition: transform 0.1s ease-out;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
+      margin-top: 1rem;
+      font-size: 3rem;
+      opacity: 0; /* For typing animation */
+    }
+
+    .header-img {
+      width: 450px;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid #00ffff;
+      box-shadow: 0 0 20px #00ffff80, 0 0 40px #00ffff40 inset;
+      animation: pulseGlow 3s infinite ease-in-out;
+      margin-left: 20px;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px #00ffff80, 0 0 40px #00ffff40 inset;
+      }
+      50% {
+        box-shadow: 0 0 30px #00ffffaa, 0 0 60px #00ffff55 inset;
+      }
+    }
+
+    .miniature {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      animation: fadeIn 0.5s ease;
+      background-color: #1a1a1a;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00ffff55;
+    }
+
+    .miniature-text {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #00ffff80;
+      margin: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Call to Action Button */
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      border-radius: 25px;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00ffff55;
+      animation: pulseCTA 2s infinite ease-in-out;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00ffff;
+      color: #0f0f0f;
+      box-shadow: 0 0 20px #00ffffaa;
+    }
+
+    @keyframes pulseCTA {
+      0%, 100% { box-shadow: 0 0 15px #00ffff55; }
+      50% { box-shadow: 0 0 25px #00ffffaa; }
+    }
+
+    /* Mini profile that appears on scroll */
+    .mini-profile {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff55;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+      text-align: center;
+    }
+
+    .mini-profile .welcome-text {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 5px #00ffff80;
+    }
+
+    .mini-profile h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .mini-profile p {
+      font-size: 0.8rem;
+      margin: 0;
+      color: #e0e0e0;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      border-bottom: 1px solid #333;
+    }
+
+    h2 {
+      color: #00ffff;
+      border-left: 4px solid #00ffff;
+      padding-left: 10px;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffff44;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      text-align: justify;
+    }
+
+    .card-content {
+      max-height: 0;
+      text-align: justify;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .card.active .card-content {
+      max-height: 500px;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact span {
+      display: block;
+    }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact span {
+      display: block;
+    }
+
+    .form-confirmation {
+  display: none;
+  text-align: center;
+  margin-top: 1rem;
+  color: #00ffcc;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  animation: fadeIn 0.5s ease-in;
+}
+/* Contact form */
+.contact-form {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #00ffff44;
+      margin-top: 1rem;
+      margin-left:10%;
+      width: 80%;
+      
+    }
+
+    .contact-form h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      margin-left: 16%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 60%;
+      padding: 0.8rem;
+      margin-top: 0.3rem;
+      background-color: #333;
+      border: 2px solid #00ffff;
+      border-radius: 5px;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      margin-left: 16%;
+    }
+
+    .contact-form button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      width: 100%;
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      border-radius: 5px;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00ffff;
+      color: #0f0f0f;
+      box-shadow: 0 0 15px #00ffffaa;
+    }
+
+    .form-confirmation {
+      display: none;
+      color: #00ffcc;
+      font-weight: bold;
+      margin-top: 1rem;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="profil.jpg" alt="Nouhaila Ourrad" class="header-img" id="main-img">
+  <div class="miniature" id="miniature">
+    <p class="miniature-text">Bienvenue dans mon CV</p>
+  </div>
+  <h1 id="typing-name"></h1>
+  <p>Data Scientist | Passionnée par l'IA & le Machine Learning</p>
+  <a href="#contact" class="cta-button">Discover My Journey</a>
+</header>
+
+<!-- Mini profile that appears on scroll -->
+<div class="mini-profile" id="mini-profile">
+  <div class="welcome-text">Bienvenue dans mon CV</div>
+  <h3>Nouhaila Ourrad</h3>
+  <p>Data Scientist</p>
+</div>
+
+<div class="section contact" id="contact">
+  <h2>Contact</h2>
+  <span>📞 +33 7 64 28 43 85</span>
+  <span>✉️ <a href="mailto:nouhailaourrad0@gmail.com">nouhailaourrad0@gmail.com</a></span>
+  <span>🔗 <a href="https://www.linkedin.com/in/nouhaila-ourrad">LinkedIn</a></span>
+  <span>📍 174 Rue Michel-Ange, Calais</span>
+</div>
+
+<div class="section">
+  <h2>Profil</h2>
+  <div class="card">
+    Passionnée par l’IA et l’apprentissage automatique, avec une expertise en deep learning, je suis actuellement
+    en 4ème année d’ingénierie informatique (EILCO) et en double diplôme avec l’ENSAM Rabat en ingénierie
+    numérique, data science et IA. 
+  </div>
+</div>
+
+<div class="section">
+  <h2>Expériences</h2>
+  <div class="card">
+    <strong>Groupe OCP – Data Scientist (Stage, Juin 2023 - Août 2023)</strong>
+    <div class="card-content">
+      Conception de modèle IA pour optimiser le RUL des machines, améliorant ainsi la maintenance prédictive et l'efficacité industrielle.
+    </div>
+  </div>
+  <div class="card">
+    <strong>Miza Equipement – Développeur Logiciel (Stage, Juin 2021 - Août 2021)</strong>
+    <div class="card-content">
+      Développement d'une interface vitrine, optimisant la visibilité en ligne et contribuant à l'augmentation des ventes.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Éducation</h2>
+  <div class="card">
+    <strong>Double Diplôme d'Ingénieur, Informatique – EILCO Calais (2024 - En cours)</strong>
+    <div class="card-content">
+      École d'Ingénieurs du Littoral-Côte-d'Opale, formation en informatique avec un focus sur les technologies avancées.
+    </div>
+  </div>
+  <div class="card">
+    <strong>Diplôme d'Ingénieur, Data Science et IA – ENSAM Rabat (2022 - 2025)</strong>
+    <div class="card-content">
+      École Nationale Supérieure d'Arts et Métiers, spécialisation en data science et intelligence artificielle.
+    </div>
+  </div>
+  <div class="card">
+    <strong>DUT Génie Informatique – EST Safi (2020 - 2022)</strong>
+    <div class="card-content">
+      École Supérieure de Technologie, formation en génie informatique axée sur le développement logiciel.
+    </div>
+  </div>
+  <div class="card">
+    <strong>Baccalauréat Sciences Mathématiques, Option Française – Lycée Al Khwarizmi (2019 - 2020)</strong>
+    <div class="card-content">
+      Lycée Technique Al Khwarizmi, Safi, Maroc. Formation scientifique avec une base solide en mathématiques.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Projets</h2>
+  <div class="card">
+    <strong>🌿 Reconnaissance des plantes médicinales</strong>
+    <div class="card-content">
+      Développement d'une application basée sur des réseaux de neurones convolutifs (CNN) pour identifier les plantes médicinales et celles poussant à proximité.
+    </div>
+  </div>
+  <div class="card">
+    <strong>🌐 Réseaux sociaux</strong>
+    <div class="card-content">
+      Création d'une application web dédiée à l'étude comparative des descripteurs topologiques et à leurs applications dans les réseaux sociaux.
+    </div>
+  </div>
+  <div class="card">
+    <strong>🛠️ Maintenance prédictive</strong>
+    <div class="card-content">
+      Modèles de Machine Learning développés pour prédire la durée de vie restante des équipements industriels.
+    </div>
+  </div>
+  <div class="card">
+    <strong>💬 Analyse des sentiments</strong>
+    <div class="card-content">
+      Développement d'un projet NLP pour l'analyse des sentiments à partir de données textuelles.
+    </div>
+  </div>
+  <div class="card">
+    <strong>🧬 Classification du cancer</strong>
+    <div class="card-content">
+      Sélection de gènes pour la classification du cancer à partir de données de puces à ADN, en utilisant une approche hybride d'optimisation par essaim galactique.
+    </div>
+
+    
+  </div>
+  <div class="card">
+    <strong>♟️ Modèle IA pour Battle Line Simplifié</strong>
+    <div class="card-content">
+      Conception d’un modèle intelligent pour le jeu Battle Line Simplifié (BLS), basé sur des stratégies d’optimisation, de recherche et de prise de décision autonome. Ce projet a impliqué l’implémentation d’un moteur IA capable d’anticiper les mouvements et d’évaluer les états de jeu.
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Compétences</h2>
+  <div class="card">
+    
+      <p><strong>Langages :</strong> Python, C, C++, Java, SQL, R</p>
+      <p><strong>Frameworks IA et Deep Learning :</strong> TensorFlow, PyTorch, Keras, CNN, RNN</p>
+      <p><strong>Outils :</strong> Pandas, Numpy, Scikit-learn, OpenCV</p>
+      <p><strong>Algorithmes IA :</strong> A*, Algorithme Glouton, Minimax, Alpha-Beta, Q-Learning, CNN, RNN</p>
+      <p><strong>Autres :</strong> Power BI (Data Viz), Excel, Word, Microsoft Project (Gestion de projet), Trello, Jira (Collaboration, Agilité)</p>
+  
+    
+  </div>
+</div>
+
+<div class="section">
+  <h2>Langues</h2>
+  <div class="card">🇫🇷 Français (Professionnel courant)| 🇬🇧 Anglais (Professionnel courant) | 🇲🇦 Arabe (Langue maternelle) |<br> 🇪🇸 Espagnol (débutant)</div>
+</div>
+
+<div class="contact-form">
+  <h3>Envoyez-moi un message</h3>
+  <form id="contact-form" action="https://formspree.io/f/myzwgpkz" method="POST">
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+    <div id="form-confirmation" class="form-confirmation">✅ Merci ! Votre message a été envoyé avec succès.</div>
+  </form>
+</div>
+
+<script>
+  // Toggle for card content
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+  });
+
+  // Toggle for miniature text
+  const mainImg = document.getElementById('main-img');
+  const miniature = document.getElementById('miniature');
+  mainImg.addEventListener('click', () => {
+    miniature.style.display = miniature.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Show/hide mini-profile on scroll
+  const miniProfile = document.getElementById('mini-profile');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      miniProfile.style.display = 'block';
+    } else {
+      miniProfile.style.display = 'none';
+    }
+  });
+
+  // Typing animation for name
+  const nameElement = document.getElementById('typing-name');
+  const nameText = "Nouhaila Ourrad";
+  let index = 0;
+
+  function typeName() {
+    if (index < nameText.length) {
+      nameElement.textContent += nameText.charAt(index);
+      index++;
+      setTimeout(typeName, 100); // Speed of typing
+    }
+  }
+
+  // Start typing animation after page load
+  window.onload = () => {
+    nameElement.style.opacity = 1;
+    typeName();
+  };
+
+  // Parallax effect for header background
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const scrollPosition = window.scrollY;
+    header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Subtle parallax
+  });
+</script>
+<script>
+
+  
+// Confirmation après envoi du formulaire
+const form = document.getElementById('contact-form');
+const confirmation = document.getElementById('form-confirmation');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      confirmation.style.display = 'block';
+      form.reset();
+    } else {
+      confirmation.style.display = 'block';
+      confirmation.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
+      confirmation.style.color = 'red';
+    }
+  }).catch(() => {
+    confirmation.style.display = 'block';
+    confirmation.textContent = "❌ Problème de connexion. Réessayez plus tard.";
+    confirmation.style.color = 'red';
+  });
+});
+
+</script>
+
+</body>
+</html>
