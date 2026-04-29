@@ -1,0 +1,35 @@
+# ============================================================
+#  job-alert — Configuration
+# ============================================================
+
+# --- Telegram ---
+telegram:
+  bot_token: "VOTRE_BOT_TOKEN_ICI"        # Obtenez-le via @BotFather
+  chat_id: "VOTRE_CHAT_ID_ICI"            # Votre chat_id personnel ou groupe
+
+# --- France Travail (ex Pôle Emploi) API ---
+france_travail:
+  client_id: "VOTRE_CLIENT_ID_ICI"        # https://francetravail.io/
+  client_secret: "VOTRE_CLIENT_SECRET_ICI"
+
+# --- Mots-clés de recherche ---
+keywords:
+  - "Data Engineer"
+  - "Data Analyst"
+  - "Data Scientist"
+  - "Data Architect"
+  - "Analytics Engineer"
+
+# --- Localisation ---
+location:
+  country: "France"
+  # Laissez vide pour toute la France, ou précisez ex: "Paris"
+  city: ""
+
+# --- Paramètres généraux ---
+settings:
+  check_interval_minutes: 30     # Fréquence de vérification
+  max_age_hours: 24              # Offres publiées dans les N dernières heures
+  contract_type: "CDI"           # Type de contrat filtré
+  seen_jobs_file: "storage/seen_jobs.json"
+  log_level: "INFO"              # DEBUG | INFO | WARNING | ERROR
