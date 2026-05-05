@@ -1,576 +1,916 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Nouhaila Ourrad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
-  <style>
-       body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
-      color: #e0e0e0;
-      line-height: 1.6;
-      position: relative;
-    }
-    .card p {
-  margin-bottom: 1rem; /* espace entre les paragraphes */
-  line-height: 1.8;    /* interligne plus aéré */
-  text-align: justify;
-}
+  <title>Nouhaila Ourrad | Data Scientist & AI Engineer</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="CV de Nouhaila Ourrad, Data Scientist et Ingénieure en Intelligence Artificielle. Découvrez mes projets, compétences et expériences professionnelles.">
 
-    /* ✅ Image IA de fond sur tout le site */
-    body::before {
-      content: "";
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* VARIABLES */
+    :root {
+      --bg-color: #050505;
+      --surface-color: rgba(25, 25, 30, 0.6);
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-primary: #00f0ff;
+      --accent-secondary: #7000ff;
+      --accent-glow: rgba(0, 240, 255, 0.3);
+      --card-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* RESET & BASE */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* BACKGROUND ANIMATION */
+    .bg-animation {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCfw4TQ8M8BesR95nux7W49_PORl9RiTPzKQ&s') no-repeat center center;
-      background-size: cover;
-      opacity: 0.05;
-      z-index: -2;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.05), transparent 25%);
     }
 
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      z-index: -1;
+      opacity: 0.4;
+      animation: float 10s infinite ease-in-out alternate;
+    }
+
+    .blob-1 {
+      top: 10%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: var(--accent-secondary);
+    }
+
+    .blob-2 {
+      bottom: 10%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      background: var(--accent-primary);
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+
+      100% {
+        transform: translateY(-50px) scale(1.1);
+      }
+    }
+
+    /* LAYOUT & CONTAINERS */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER / HERO */
     header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(90deg, #00ffff44, #8800ff44);
       position: relative;
-      height: 100vh;
+    }
+
+    .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: center; /* ✅ centrage horizontal */
+      align-items: center;
+      z-index: 10;
+    }
+
+    .profile-img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 2rem;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      animation: pulse 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      100% {
+        box-shadow: 0 0 40px rgba(112, 0, 255, 0.4);
+      }
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: var(--bg-color);
+      border: 4px solid var(--bg-color);
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-roles {
+      font-size: 1.5rem;
+      color: var(--accent-primary);
+      margin-bottom: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-desc {
+      max-width: 600px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .hero-contact {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--surface-color);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--surface-border);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .contact-badge:hover {
+      border-color: var(--accent-primary);
+      background: rgba(0, 240, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .contact-badge i {
+      color: var(--accent-primary);
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 6rem 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 2px;
+      flex-grow: 1;
+      background: linear-gradient(90deg, var(--accent-primary), transparent);
+      opacity: 0.3;
+    }
+
+    .section-title i {
+      color: var(--accent-primary);
+    }
+
+    /* CARDS (Glassmorphism) */
+    .card {
+      background: var(--surface-color);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+      position: relative;
       overflow: hidden;
     }
 
-    /* Parallax background effect */
-    header::before {
-      content: '';
+    .card::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 4px;
       height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.futura-sciences.com%2Ftech%2Fquestions-reponses%2Fintelligence-artificielle-nouveaux-outils-ia-sont-ils-capables-18666%2F&psig=AOvVaw2_w7CDVP0QGc6p_qwa4lh5&ust=1745325242357000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJCui7CR6YwDFQAAAAAdAAAAABAE') no-repeat center center/cover;
-      z-index: -1;
-      transform: translateY(0);
-      transition: transform 0.1s ease-out;
+      background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+      opacity: 0;
+      transition: var(--transition);
     }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      margin-top: 1rem;
-      font-size: 3rem;
-      opacity: 0; /* For typing animation */
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .header-img {
-      width: 450px;
-      height: 450px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 3px solid #00ffff;
-      box-shadow: 0 0 20px #00ffff80, 0 0 40px #00ffff40 inset;
-      animation: pulseGlow 3s infinite ease-in-out;
-      margin-left: 20px;
+    .card:hover::before {
+      opacity: 1;
     }
 
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 20px #00ffff80, 0 0 40px #00ffff40 inset;
-      }
-      50% {
-        box-shadow: 0 0 30px #00ffffaa, 0 0 60px #00ffff55 inset;
-      }
-    }
-
-    .miniature {
-      display: none;
-      text-align: center;
-      margin-top: 1rem;
-      animation: fadeIn 0.5s ease;
-      background-color: #1a1a1a;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #00ffff55;
-    }
-
-    .miniature-text {
-      font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      font-size: 1.2rem;
-      text-shadow: 0 0 5px #00ffff80;
-      margin: 0;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* Call to Action Button */
-    .cta-button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 2rem;
-      background-color: transparent;
-      border: 2px solid #00ffff;
-      border-radius: 25px;
-      color: #00ffff;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      text-decoration: none;
-      box-shadow: 0 0 15px #00ffff55;
-      animation: pulseCTA 2s infinite ease-in-out;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #00ffff;
-      color: #0f0f0f;
-      box-shadow: 0 0 20px #00ffffaa;
-    }
-
-    @keyframes pulseCTA {
-      0%, 100% { box-shadow: 0 0 15px #00ffff55; }
-      50% { box-shadow: 0 0 25px #00ffffaa; }
-    }
-
-    /* Mini profile that appears on scroll */
-    .mini-profile {
-      display: none;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #1a1a1a;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00ffff55;
-      z-index: 1000;
-      animation: slideIn 0.3s ease;
-      text-align: center;
-    }
-
-    .mini-profile .welcome-text {
-      font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 5px #00ffff80;
-    }
-
-    .mini-profile h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      font-size: 1rem;
-      margin: 0;
-    }
-
-    .mini-profile p {
-      font-size: 0.8rem;
-      margin: 0;
-      color: #e0e0e0;
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(-100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      border-bottom: 1px solid #333;
-    }
-
-    h2 {
-      color: #00ffff;
-      border-left: 4px solid #00ffff;
-      padding-left: 10px;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background-color: #1a1a1a;
-      padding: 1rem;
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card-title-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
       border-radius: 8px;
-      box-shadow: 0 0 10px #00ffff44;
-      cursor: pointer;
-      overflow: hidden;
-      position: relative;
-      text-align: justify;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 4px;
+      border: 1px solid var(--surface-border);
     }
 
-    .card-content {
-      max-height: 0;
-      text-align: justify;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+    .card-title {
+      font-size: 1.3rem;
+      color: #fff;
     }
 
-    .card.active .card-content {
-      max-height: 500px;
+    .card-subtitle {
+      color: var(--accent-primary);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
     }
 
-    a {
-      color: #00ffff;
-      text-decoration: none;
+    .card-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .contact span {
-      display: block;
-    }
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .contact span {
-      display: block;
-    }
-
-    .form-confirmation {
-  display: none;
-  text-align: center;
-  margin-top: 1rem;
-  color: #00ffcc;
-  font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
-  animation: fadeIn 0.5s ease-in;
-}
-/* Contact form */
-.contact-form {
-      background-color: #1a1a1a;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 15px #00ffff44;
+    .card-body ul {
+      list-style: none;
       margin-top: 1rem;
-      margin-left:10%;
-      width: 80%;
-      
     }
 
-    .contact-form h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+    .card-body li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .card-body li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+
+    .card-body li strong {
+      color: var(--text-main);
+    }
+
+    /* SKILLS SECTION */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--surface-color);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .skill-category:hover {
+      border-color: var(--accent-secondary);
+    }
+
+    .skill-category h3 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--surface-border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .skill-category:hover .skill-tag {
+      border-color: rgba(0, 240, 255, 0.2);
+    }
+
+    /* PROJECTS GRID */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+    }
+
+    /* CONTACT SECTION (Form) */
+    .contact-container {
+      background: var(--surface-color);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .contact-form label {
-      display: block;
-      margin-top: 1rem;
-      margin-left: 16%;
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
     }
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 60%;
-      padding: 0.8rem;
-      margin-top: 0.3rem;
-      background-color: #333;
-      border: 2px solid #00ffff;
-      border-radius: 5px;
-      color: #e0e0e0;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      margin-left: 16%;
-    }
-
-    .contact-form button {
-      margin-top: 1.5rem;
-      padding: 0.8rem;
+    .form-control {
       width: 100%;
-      background-color: transparent;
-      border: 2px solid #00ffff;
-      border-radius: 5px;
-      color: #00ffff;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
     }
 
-    .contact-form button:hover {
-      background-color: #00ffff;
-      color: #0f0f0f;
-      box-shadow: 0 0 15px #00ffffaa;
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-submit:hover {
+      box-shadow: 0 0 20px rgba(112, 0, 255, 0.4);
+      transform: translateY(-2px);
     }
 
     .form-confirmation {
       display: none;
-      color: #00ffcc;
-      font-weight: bold;
       margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: rgba(0, 255, 128, 0.1);
+      color: #00ff80;
+      border: 1px solid rgba(0, 255, 128, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
       text-align: center;
-      animation: fadeIn 0.5s ease-in;
+      padding: 2rem;
+      border-top: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 4rem;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
 
+      .hero-roles {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .contact-container {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <img src="profil.jpg" alt="Nouhaila Ourrad" class="header-img" id="main-img">
-  <div class="miniature" id="miniature">
-    <p class="miniature-text">Bienvenue dans mon CV</p>
+  <!-- Background Elements -->
+  <div class="bg-animation">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
   </div>
-  <h1 id="typing-name"></h1>
-  <p>Data Scientist | Passionnée par l'IA & le Machine Learning</p>
-  <a href="#contact" class="cta-button">Discover My Journey</a>
-</header>
 
-<!-- Mini profile that appears on scroll -->
-<div class="mini-profile" id="mini-profile">
-  <div class="welcome-text">Bienvenue dans mon CV</div>
-  <h3>Nouhaila Ourrad</h3>
-  <p>Data Scientist</p>
-</div>
+  <!-- Header / Hero Section -->
+  <header id="home">
+    <div class="container hero-content">
+      <div class="profile-img-container">
+        <!-- Remplacer profil.jpg par le chemin de votre image si disponible, ou utiliser l'image importée par défaut -->
+        <img src="profil.jpg" alt="Nouhaila Ourrad" class="profile-img" onerror="color=00f0ff&size=256'">
+      </div>
+      <h1>Nouhaila Ourrad</h1>
+      <div class="hero-roles">Data Scientist | Ingénieure IA</div>
+      <p class="hero-desc">
+        Élève ingénieure spécialisée en Data Science et Intelligence Artificielle. Passionnée par l'analyse de données complexes, le Machine Learning et la création de solutions innovantes pour répondre aux défis technologiques actuels.
+      </p>
 
-<div class="section contact" id="contact">
-  <h2>Contact</h2>
-  <span>📞 +33 7 64 28 43 85</span>
-  <span>✉️ <a href="mailto:nouhailaourrad0@gmail.com">nouhailaourrad0@gmail.com</a></span>
-  <span>🔗 <a href="https://www.linkedin.com/in/nouhaila-ourrad">LinkedIn</a></span>
-  <span>📍 174 Rue Michel-Ange, Calais</span>
-</div>
+      <div class="hero-contact">
 
-<div class="section">
-  <h2>Profil</h2>
-  <div class="card">
-    Passionnée par l’IA et l’apprentissage automatique, avec une expertise en deep learning, je suis actuellement
-    en 4ème année d’ingénierie informatique (EILCO) et en double diplôme avec l’ENSAM Rabat en ingénierie
-    numérique, data science et IA. 
-  </div>
-</div>
-
-<div class="section">
-  <h2>Expériences</h2>
-  <div class="card">
-    <strong>Groupe OCP – Data Scientist (Stage, Juin 2023 - Août 2023)</strong>
-    <div class="card-content">
-      Conception de modèle IA pour optimiser le RUL des machines, améliorant ainsi la maintenance prédictive et l'efficacité industrielle.
+        <a href="mailto:nouhailaourrad0@gmail.com" class="contact-badge">
+          <i class="fa-solid fa-envelope"></i> nouhailaourrad0@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/nouhaila-ourrad" target="_blank" class="contact-badge">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <div class="contact-badge">
+          <i class="fa-solid fa-phone"></i> +33 7 64 28 43 85
+        </div>
+        <div class="contact-badge">
+          <i class="fa-solid fa-location-dot"></i> Mobilité France
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <strong>Miza Equipement – Développeur Logiciel (Stage, Juin 2021 - Août 2021)</strong>
-    <div class="card-content">
-      Développement d'une interface vitrine, optimisant la visibilité en ligne et contribuant à l'augmentation des ventes.
-    </div>
-  </div>
-</div>
+  </header>
 
-<div class="section">
-  <h2>Éducation</h2>
-  <div class="card">
-    <strong>Double Diplôme d'Ingénieur, Informatique – EILCO Calais (2024 - En cours)</strong>
-    <div class="card-content">
-      École d'Ingénieurs du Littoral-Côte-d'Opale, formation en informatique avec un focus sur les technologies avancées.
-    </div>
-  </div>
-  <div class="card">
-    <strong>Diplôme d'Ingénieur, Data Science et IA – ENSAM Rabat (2022 - 2025)</strong>
-    <div class="card-content">
-      École Nationale Supérieure d'Arts et Métiers, spécialisation en data science et intelligence artificielle.
-    </div>
-  </div>
-  <div class="card">
-    <strong>DUT Génie Informatique – EST Safi (2020 - 2022)</strong>
-    <div class="card-content">
-      École Supérieure de Technologie, formation en génie informatique axée sur le développement logiciel.
-    </div>
-  </div>
-  <div class="card">
-    <strong>Baccalauréat Sciences Mathématiques, Option Française – Lycée Al Khwarizmi (2019 - 2020)</strong>
-    <div class="card-content">
-      Lycée Technique Al Khwarizmi, Safi, Maroc. Formation scientifique avec une base solide en mathématiques.
-    </div>
-  </div>
-</div>
+  <!-- Main Content -->
+  <main class="container">
 
-<div class="section">
-  <h2>Projets</h2>
-  <div class="card">
-    <strong>🌿 Reconnaissance des plantes médicinales</strong>
-    <div class="card-content">
-      Développement d'une application basée sur des réseaux de neurones convolutifs (CNN) pour identifier les plantes médicinales et celles poussant à proximité.
-    </div>
-  </div>
-  <div class="card">
-    <strong>🌐 Réseaux sociaux</strong>
-    <div class="card-content">
-      Création d'une application web dédiée à l'étude comparative des descripteurs topologiques et à leurs applications dans les réseaux sociaux.
-    </div>
-  </div>
-  <div class="card">
-    <strong>🛠️ Maintenance prédictive</strong>
-    <div class="card-content">
-      Modèles de Machine Learning développés pour prédire la durée de vie restante des équipements industriels.
-    </div>
-  </div>
-  <div class="card">
-    <strong>💬 Analyse des sentiments</strong>
-    <div class="card-content">
-      Développement d'un projet NLP pour l'analyse des sentiments à partir de données textuelles.
-    </div>
-  </div>
-  <div class="card">
-    <strong>🧬 Classification du cancer</strong>
-    <div class="card-content">
-      Sélection de gènes pour la classification du cancer à partir de données de puces à ADN, en utilisant une approche hybride d'optimisation par essaim galactique.
-    </div>
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="fade-section">
+      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Expériences Professionnelles</h2>
 
-    
-  </div>
-  <div class="card">
-    <strong>♟️ Modèle IA pour Battle Line Simplifié</strong>
-    <div class="card-content">
-      Conception d’un modèle intelligent pour le jeu Battle Line Simplifié (BLS), basé sur des stratégies d’optimisation, de recherche et de prise de décision autonome. Ce projet a impliqué l’implémentation d’un moteur IA capable d’anticiper les mouvements et d’évaluer les états de jeu.
-    </div>
-  </div>
-</div>
+      <!-- Alternance Aluminium Dunkerque -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-container">
+            <img src="logo.png" alt="Aluminium Dunkerque" class="company-logo" onerror="">
+            <div>
+              <h3 class="card-title">Data Scientist | Alternance</h3>
+              <div class="card-subtitle">Aluminium Dunkerque</div>
+            </div>
+          </div>
+          <span class="card-date">En cours - Août 2025 • Dunkerque, France</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Modélisation Prédictive :</strong> Développement et entraînement d'algorithmes (Séries
+              temporelles, XGBoost, Random Forest) pour la détection anticipée des effets d'anode dans le procédé
+              d'électrolyse.</li>
+            <li><strong>Analyse & Impact :</strong> Traitement de bases de données industrielles massives pour
+              identifier les patterns d'anomalies, visant à réduire le taux de défaillance et optimiser le rendement
+              énergétique.</li>
+          </ul>
+        </div>
+      </div>
 
-<div class="section">
-  <h2>Compétences</h2>
-  <div class="card">
-    
-      <p><strong>Langages :</strong> Python, C, C++, Java, SQL, R</p>
-      <p><strong>Frameworks IA et Deep Learning :</strong> TensorFlow, PyTorch, Keras, CNN, RNN</p>
-      <p><strong>Outils :</strong> Pandas, Numpy, Scikit-learn, OpenCV</p>
-      <p><strong>Algorithmes IA :</strong> A*, Algorithme Glouton, Minimax, Alpha-Beta, Q-Learning, CNN, RNN</p>
-      <p><strong>Autres :</strong> Power BI (Data Viz), Excel, Word, Microsoft Project (Gestion de projet), Trello, Jira (Collaboration, Agilité)</p>
-  
-    
-  </div>
-</div>
+      <!-- Stage OCP -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-container">
+            <img src="OCP_Group.svg.png" alt="Groupe OCP" class="company-logo" onerror="'">
+            <div>
+              <h3 class="card-title">Data Scientist | Stage</h3>
+              <div class="card-subtitle">Groupe OCP</div>
+            </div>
+          </div>
+          <span class="card-date">Juin 2023 - Août 2023 • Safi, Maroc</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Maintenance Prédictive :</strong> Conception d'un pipeline de Deep Learning (LSTM / Réseaux de
+              neurones) pour prédire la durée de vie utile restante (RUL) d'équipements critiques.</li>
+            <li><strong>Optimisation métier :</strong> Amélioration des stratégies de maintenance pour limiter les temps
+              d'arrêt (downtime) et accroître l'efficacité industrielle.</li>
+          </ul>
+        </div>
+      </div>
 
-<div class="section">
-  <h2>Langues</h2>
-  <div class="card">🇫🇷 Français (Professionnel courant)| 🇬🇧 Anglais (Professionnel courant) | 🇲🇦 Arabe (Langue maternelle) |<br> 🇪🇸 Espagnol (débutant)</div>
-</div>
+      <!-- Stage Miza Equipement -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-container">
+            <img src="https://www.google.com/s2/favicons?domain=miza.ma&sz=128" alt="Miza Equipement"
+              class="company-logo" onerror="">
+            <div>
+              <h3 class="card-title">Développeur Logiciel | Stage</h3>
+              <div class="card-subtitle">Miza Equipement</div>
+            </div>
+          </div>
+          <span class="card-date">Juin 2021 - Août 2021 • Safi, Maroc</span>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Développement Web :</strong> Conception et déploiement d’une interface web vitrine full-stack,
+              optimisant l'expérience client et augmentant la génération de leads online.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<div class="contact-form">
-  <h3>Envoyez-moi un message</h3>
-  <form id="contact-form" action="https://formspree.io/f/myzwgpkz" method="POST">
-    <label for="name">Nom</label>
-    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="fade-section">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formations</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <div class="card-subtitle">Double Diplôme d'Ingénieur, Informatique</div>
+          <h3 class="card-title">EILCO</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">2024 - En cours • Calais, France
+          </p>
+          <p style="margin-top: 1rem; font-size: 0.95rem;">École d'Ingénieurs du Littoral-Côte-d'Opale. Focus sur les
+            technologies avancées, l'informatique et les systèmes intelligents.</p>
+        </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Votre email" required>
+        <div class="card">
+          <div class="card-subtitle">Diplôme d'Ingénieur, Data Science & IA</div>
+          <h3 class="card-title">ENSAM</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">2022 - 2025 • Rabat, Maroc</p>
+          <p style="margin-top: 1rem; font-size: 0.95rem;">École Nationale Supérieure d'Arts et Métiers. Spécialisation
+            en modélisation, IA, et analyse de données complexes.</p>
+        </div>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+        <div class="card">
+          <div class="card-subtitle">DUT Génie Informatique</div>
+          <h3 class="card-title">EST Safi</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">2020 - 2022 • Safi, Maroc</p>
+        </div>
+      </div>
+    </section>
 
-    <button type="submit">Envoyer</button>
-    <div id="form-confirmation" class="form-confirmation">✅ Merci ! Votre message a été envoyé avec succès.</div>
-  </form>
-</div>
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="fade-section">
+      <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Compétences Techniques</h2>
+      <div class="skills-grid">
 
-<script>
-  // Toggle for card content
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('active');
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-brain"></i> Data Science & IA</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Séries Temporelles</span>
+            <span class="skill-tag">ARIMA / SARIMA</span>
+            <span class="skill-tag">Prophet (Meta)</span>
+            <span class="skill-tag">Statsmodels</span>
+            <span class="skill-tag">CNN / RNN / LSTM / GRU</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">Random Forest</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">Réseaux GAN</span>
+            <span class="skill-tag">Clustering (K-Means)</span>
+            <span class="skill-tag">Détection d'anomalies</span>
+            <span class="skill-tag">Feature Engineering</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-code"></i> Langages & Frameworks</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Pandas / Numpy</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">SciPy</span>
+            <span class="skill-tag">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-cloud"></i> Cloud & MLOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">MLflow</span>
+            <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">Azure (Fondamentaux)</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">VS Code</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-database"></i> Data Engineering</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ETL / Pipelines</span>
+            <span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Data Wrangling</span>
+            <span class="skill-tag">Web Scraping</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-chart-bar"></i> Visualisation & Outils</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Matplotlib / Seaborn</span>
+            <span class="skill-tag">Plotly</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Méthodes Agiles (Scrum)</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">LaTeX</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-language"></i> Langues</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Français (Courant/C1)</span>
+            <span class="skill-tag">Anglais (Professionnel/B2)</span>
+            <span class="skill-tag">Arabe (Maternelle)</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="fade-section">
+      <h2 class="section-title"><i class="fa-solid fa-flask"></i> Projets Académiques & Personnels</h2>
+      <div class="projects-grid">
+
+        <div class="card project-card">
+          <i class="fa-solid fa-leaf project-icon"></i>
+          <h3 class="card-title">Computer Vision (Plantes Médicinales)</h3>
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+            Entraînement d'une architecture de réseaux neuronaux convolutifs (CNN) pour la classification et détection
+            précise de plantes médicinales.
+          </p>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-dna project-icon"></i>
+          <h3 class="card-title">Classification du Cancer (PSO & ML)</h3>
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+            Approche hybride couplant l'Optimisation par Essaim Particulaire (PSO) et ML pour sélectionner des
+            biomarqueurs à partir de microarrays d'ADN.
+          </p>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-chess-knight project-icon"></i>
+          <h3 class="card-title">IA Stratégique (Battle Line)</h3>
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+            Conception d’un modèle intelligent autonome pour le jeu Battle Line Simplifié avec implémentation
+            d'algorithmes (Minimax, Alpha-Beta).
+          </p>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-comments project-icon"></i>
+          <h3 class="card-title">Analyse de Sentiments (NLP)</h3>
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+            Pipeline de Traitement du Langage Naturel performant pour classifier la polarité textuelle.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="fade-section">
+      <h2 class="section-title" style="justify-content: center;">Me Contacter</h2>
+      <div class="contact-container">
+        <p style="margin-bottom: 2rem; color: var(--text-muted);">Une opportunité, une question ? N'hésitez pas à
+          m'envoyer un message via ce formulaire.</p>
+        <form id="contact-form" action="https://formspree.io/f/myzwgpkz" method="POST">
+          <div class="form-group">
+            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom complet" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" class="form-control" rows="5" placeholder="Votre message..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Envoyer le message <i class="fa-solid fa-paper-plane"
+              style="margin-left: 8px;"></i></button>
+
+          <div id="form-confirmation" class="form-confirmation">
+            <i class="fa-solid fa-circle-check"></i> Merci ! Votre message a été envoyé avec succès.
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nouhaila Ourrad. Conçu avec passion.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Fade-in animation on scroll
+    const items = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => observer.observe(item));
+
+    // Wait until the page is fully loaded to display main elements initially visible
+    window.addEventListener('load', () => {
+      document.querySelector('header').classList.add('visible');
     });
-  });
 
-  // Toggle for miniature text
-  const mainImg = document.getElementById('main-img');
-  const miniature = document.getElementById('miniature');
-  mainImg.addEventListener('click', () => {
-    miniature.style.display = miniature.style.display === 'block' ? 'none' : 'block';
-  });
+    // Form submission handling
+    const form = document.getElementById('contact-form');
+    const confirmation = document.getElementById('form-confirmation');
 
-  // Show/hide mini-profile on scroll
-  const miniProfile = document.getElementById('mini-profile');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      miniProfile.style.display = 'block';
-    } else {
-      miniProfile.style.display = 'none';
-    }
-  });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('.btn-submit');
+      const originalText = btn.innerHTML;
 
-  // Typing animation for name
-  const nameElement = document.getElementById('typing-name');
-  const nameText = "Nouhaila Ourrad";
-  let index = 0;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi...';
+      btn.disabled = true;
 
-  function typeName() {
-    if (index < nameText.length) {
-      nameElement.textContent += nameText.charAt(index);
-      index++;
-      setTimeout(typeName, 100); // Speed of typing
-    }
-  }
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          confirmation.style.display = 'block';
+          confirmation.innerHTML = '<i class="fa-solid fa-circle-check"></i> Merci ! Votre message a été envoyé avec succès.';
+          confirmation.style.color = '#00ff80';
+          confirmation.style.background = 'rgba(0, 255, 128, 0.1)';
+          confirmation.style.borderColor = 'rgba(0, 255, 128, 0.2)';
+          form.reset();
+        } else {
+          showError();
+        }
+      }).catch(() => {
+        showError();
+      }).finally(() => {
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 1500);
+      });
 
-  // Start typing animation after page load
-  window.onload = () => {
-    nameElement.style.opacity = 1;
-    typeName();
-  };
-
-  // Parallax effect for header background
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const scrollPosition = window.scrollY;
-    header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Subtle parallax
-  });
-</script>
-<script>
-
-  
-// Confirmation après envoi du formulaire
-const form = document.getElementById('contact-form');
-const confirmation = document.getElementById('form-confirmation');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const data = new FormData(form);
-  fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: {
-      'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      confirmation.style.display = 'block';
-      form.reset();
-    } else {
-      confirmation.style.display = 'block';
-      confirmation.textContent = "❌ Une erreur est survenue. Veuillez réessayer.";
-      confirmation.style.color = 'red';
-    }
-  }).catch(() => {
-    confirmation.style.display = 'block';
-    confirmation.textContent = "❌ Problème de connexion. Réessayez plus tard.";
-    confirmation.style.color = 'red';
-  });
-});
-
-</script>
-
+      function showError() {
+        confirmation.style.display = 'block';
+        confirmation.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Une erreur est survenue. Veuillez réessayer.';
+        confirmation.style.color = '#ff4d4d';
+        confirmation.style.background = 'rgba(255, 77, 77, 0.1)';
+        confirmation.style.borderColor = 'rgba(255, 77, 77, 0.2)';
+      }
+    });
+  </script>
 </body>
+
 </html>

@@ -1,0 +1,211 @@
+\documentclass[a4paper,11pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\usepackage[english,french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\usepackage{mathpazo} % Professional font (Palatino)
+
+% Geometry configuration
+\geometry{
+    left=1.2cm,
+    right=1.2cm,
+    top=0.8cm,
+    bottom=0.8cm
+}
+
+% Custom Colors
+\definecolor{primary}{RGB}{0, 51, 102} % Professional Deep Blue
+\definecolor{secondary}{RGB}{102, 102, 102} % Dark Gray
+\definecolor{accent}{RGB}{0, 120, 215} % Subtle Blue Accent
+
+% Section Formatting
+\titleformat{\section}
+  {\color{primary}\scshape\Large\bfseries}
+  {}
+  {0em}
+  {}
+  [{\titlerule[1pt]\vspace{2pt}}]
+
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% Custom Commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.25in, labelsep=5pt, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%----------------------------------------------------------------------------------------
+%	RESUME CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Header Section
+\noindent
+\begin{minipage}[c]{0.22\textwidth}
+    \begin{center}
+        \includegraphics[width=2.8cm]{IMG-20250413-WA0001-removebg-preview.png}
+    \end{center}
+\end{minipage}
+\begin{minipage}[c]{0.78\textwidth}
+    \raggedright
+    {\Huge \textbf{\color{primary} Nouhaila Ourrad}} \\[4pt]
+    {\Large \textit{Data Scientist | AI Engineer}} \\[8pt]
+    \small{
+        \faPhone* \hspace{1pt} +212 7 24 83 84 94 \hspace{12pt}
+        \faEnvelope \hspace{1pt} \href{mailto:nouhailaourrad0@gmail.com}{nouhailaourrad0@gmail.com} \hspace{12pt}
+        \faMapMarker* \hspace{1pt} Maroc / France \\[4pt]
+        \faLinkedin \hspace{1pt} \href{https://www.linkedin.com/in/nouhaila-ourrad}{nouhaila-ourrad} \hspace{12pt}
+        \faGlobe \hspace{1pt} \href{https://ourradnouhailaportfolio.netlify.app}{Portfolio} \hspace{12pt}
+        \faCar \hspace{1pt} Mobilité Internationale
+    }
+\end{minipage}
+
+\vspace{8pt}
+
+% About Me / Profile
+\section{Profil}
+\justifying
+\small Data Scientist \& Ingénieure IA avec une solide expérience pratique en milieu industriel, spécialisée dans l'optimisation des processus et la maintenance prédictive. Double diplômée (\textbf{EILCO \& ENSAM}), je maîtrise l'ensemble du cycle de vie de la donnée, de l'exploration (\textbf{EDA}) à la mise en production (\textbf{MLOps}). Orientée résultats, je déploie des modèles de \textbf{Machine Learning} et \textbf{Deep Learning} pour résoudre des problématiques métiers complexes au sein d'environnements innovants.
+
+% Experience Section
+\section{Expériences Professionnelles}
+\resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Data Scientist | Alternance}{Dunkerque, France}
+      {Aluminium Dunkerque}{En cours -- Août 2025}
+      \resumeItemListStart
+        \resumeItem{\textbf{Mission :} Détection préventive des effets d'anode pour optimiser l'électrolyse et réduire les défaillances.}
+        \resumeItem{\textbf{Réalisations :} Conception de modèles (XGBoost, LSTM) à partir de capteurs IoT. Analyse exploratoire avec Python/SQL. Industrialisation via \textbf{Docker} et \textbf{MLflow}.}
+        \resumeItem{\textbf{Résultats :} Amélioration significative de la précision de détection et réduction des faux positifs, impactant directement le rendement énergétique.}
+        \resumeItem{\textit{Stack : Python, Scikit-learn, PyTorch, SQL, Docker, MLflow, Git.}}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Data Scientist | Stage}{Safi, Maroc}
+      {Groupe OCP}{Juin 2023 -- Août 2023}
+      \resumeItemListStart
+        \resumeItem{\textbf{Mission :} Optimisation de la durée de vie utile (\textbf{RUL}) pour la maintenance prédictive.}
+        \resumeItem{\textbf{Réalisations :} Développement de modèles prédictifs (Random Forest, Régression) et Feature Engineering sur données vibratoires/thermiques.}
+        \resumeItem{\textbf{Résultats :} Anticipation des pannes critiques avec une haute précision, réduisant les temps d'arrêt non planifiés.}
+        \resumeItem{\textit{Stack : Python, Pandas, Scikit-learn, Matplotlib.}}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Développeur Logiciel | Stage}{Safi, Maroc}
+      {Miza Equipement}{Juin 2021 -- Août 2021}
+      \resumeItemListStart
+        \resumeItem{\textbf{Mission :} Développement full-stack d'une plateforme vitrine e-commerce.}
+        \resumeItem{\textbf{Réalisations :} Optimisation SEO et refonte UX/UI. Intégration de fonctionnalités interactives.}
+        \resumeItem{\textbf{Résultats :} Augmentation de la visibilité en ligne et du taux d'engagement client.}
+        \resumeItem{\textit{Stack : HTML5, CSS3, JavaScript, PHP.}}
+      \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% Education Section
+\section{Formation}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Double Diplôme d'Ingénieur, Informatique}{Calais, France}
+    {École d'Ingénieurs du Littoral-Côte-d'Opale (EILCO)}{2024 -- En cours}
+  \resumeSubheading
+    {Diplôme d'Ingénieur, Data Science et IA}{Rabat, Maroc}
+    {École Nationale Supérieure d'Arts et Métiers (ENSAM)}{2022 -- 2025}
+  \resumeSubheading
+    {DUT Génie Informatique}{Safi, Maroc}
+    {École Supérieure de Technologie (EST)}{2020 -- 2022}
+\resumeSubHeadingListEnd
+
+% Projects Section
+\section{Projets & Réalisations}
+\resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Classification du Cancer} | Optimisation PSO}{2024}
+      \resumeItemListStart
+        \resumeItem{Sélection de gènes sur puces à ADN via une approche hybride d'optimisation par essaim particulaire.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Computer Vision} | Identification de Plantes}{2023}
+      \resumeItemListStart
+        \resumeItem{Application de classification d'images basée sur des réseaux \textbf{CNN} (PyTorch) pour les plantes médicinales.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{NLP \& Analyse de Sentiments} | HuggingFace}{2023}
+      \resumeItemListStart
+        \resumeItem{Pipeline de traitement du langage naturel pour l'analyse de polarité textuelle.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% Skills Section
+\section{Compétences Techniques}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{IA \& Data Science}{: Deep Learning (PyTorch, TensorFlow), NLP, LLM, Computer Vision, Scikit-learn, MLflow, R.} \\
+     \textbf{Programmation}{: Python (Expert), SQL, NoSQL, C/C++, Java, APIs REST (FastAPI/Flask).} \\
+     \textbf{Outils \& Cloud}{: Docker, Git (CI/CD), Power BI, Excel, Méthodes Agiles (Scrum).} \\
+     \textbf{Soft Skills}{: Résolution de problèmes, Communication technique, Adaptabilité, Travail d'équipe.}
+    }}
+\end{itemize}
+
+% Certifications & Langues
+\vspace{-8pt}
+\begin{multicols}{2}
+    \section{Certifications}
+    \resumeItemListStart
+        \resumeItem{CCNA : Introduction aux réseaux (Cisco)}
+        \resumeItem{Python for Data Science \& AI (Coursera)}
+    \resumeItemListEnd
+    
+    \columnbreak
+    
+    \section{Langues}
+    \resumeItemListStart
+        \resumeItem{Français / Anglais : Professionnel courant}
+        \resumeItem{Arabe : Maternelle | Espagnol : Débutant}
+    \resumeItemListEnd
+\end{multicols}
+
+\end{document}
